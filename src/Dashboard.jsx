@@ -4,7 +4,8 @@ import { useNavigate,Link } from 'react-router-dom'
 
 function Dashboard() {
     const navigate=useNavigate()
-    axios.defaults.withCredentials=true;
+    
+    //axios.defaults.withCredentials=true;
     
     useEffect(()=>{
         axios.get('https://server-login-and-signup-1.onrender.com/auth/verify')
