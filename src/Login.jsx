@@ -16,7 +16,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("https://server-login-and-signup-1.onrender.com/auth/login", {
+    Axios.post("https://server-login-and-signup-1.onrender.com/login", {
       email,
       password,
     })

@@ -9,7 +9,7 @@ function ForgetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("https://server-login-and-signup-1.onrender.com/auth/forgot-password", {
+    Axios.post("https://server-login-and-signup-1.onrender.com/forgot-password", {
       email,
     })
       .then((response) => {

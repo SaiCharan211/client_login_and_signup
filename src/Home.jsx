@@ -7,7 +7,7 @@ function Home() {
   axios.defaults.withCredentials=true;
 
   const handleLogout=()=>{
-    axios.get('https://server-login-and-signup-1.onrender.com/auth/logout')
+    axios.get('https://server-login-and-signup-1.onrender.com/logout')
     .then(res=>{
       if(res.data.status){
         navigate('/login')
