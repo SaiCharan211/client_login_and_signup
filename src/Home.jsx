@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate=useNavigate()
-  axios.defaults.withCredentials=true;
+  //axios.defaults.withCredentials=true;
 
   const handleLogout=()=>{
     axios.get('https://server-login-and-signup-1.onrender.com/logout')
