@@ -8,33 +8,32 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  
-  const [error,setError]=useState('')
+  const [error, setError] = useState('');
   const navigate = useNavigate();
-  
-  //Axios.defaults.withCredentials = true;
+
+  Axios.defaults.withCredentials = true;
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(username!=='' && email!=='' && password !==''){
+    if (username !== '' && email !== '' && password !== '') {
       Axios.post("https://server-login-and-signup-1.onrender.com/signup", {
         username,
         email,
         password,
       })
         .then(response => {
-          console.log(response)
-          if (response) {
-            console.log(response.data.message)
+          console.log(response);
+          if (response.data.message) {
+            console.log(response.data.message);
             navigate("/login", { replace: true });
           }
         })
         .catch(err => {
           console.log(err);
         });
-    }else{
-      setError('please Enter all details')
+    } else {
+      setError('Please enter all details');
     }
-    
   };
 
   return (
@@ -50,7 +49,7 @@ function Signup() {
               <input
                 type="text"
                 autoComplete="off"
-                className="form-control "
+                className="form-control"
                 name="name"
                 placeholder="Enter Your Name"
                 onChange={(e) => setUsername(e.target.value)}
@@ -64,21 +63,21 @@ function Signup() {
               <input
                 type="email"
                 autoComplete="off"
-                className="form-control  "
+                className="form-control"
                 name="email"
                 placeholder="Enter Email"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
-            <div className="m-3 ">
+            <div className="m-3">
               <label htmlFor="password">
                 <strong>Password</strong>
               </label>
               <input
                 type="password"
                 autoComplete="off"
-                className="form-control "
+                className="form-control"
                 name="password"
                 placeholder="Enter Password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -86,13 +85,13 @@ function Signup() {
             </div>
 
             <p style={{color:'red'}}>{error}</p>
-            <button type="submit" className="btn btn-success w-100 ">
+            <button type="submit" className="btn btn-success w-100">
               Register
             </button>
           </form>
 
-          <p> Already Have an Account</p>
-          <Link to="/login" className="btn btn-default border w-100 ">
+          <p>Already Have an Account</p>
+          <Link to="/login" className="btn btn-default border w-100">
             Login
           </Link>
         </div>
