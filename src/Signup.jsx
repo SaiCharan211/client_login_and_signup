@@ -16,7 +16,7 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(username!=='' && email!=='' && password !==''){
-      Axios.post("https://server-login-and-signup-1.onrender.com/auth/signup", {
+      Axios.post("https://server-login-and-signup-1.onrender.com/auth/", {
         username,
         email,
         password,
