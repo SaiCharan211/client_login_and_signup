@@ -7,7 +7,7 @@ function Dashboard() {
     axios.defaults.withCredentials=true;
     
     useEffect(()=>{
-        axios.get('http://localhost:3210/auth/verify')
+        axios.get('https://server-login-and-signup-1.onrender.com/auth/verify')
         .then(res=>{
             if(res.data.status){
 

@@ -16,7 +16,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3210/auth/login", {
+    Axios.post("https://server-login-and-signup-1.onrender.com/auth/login", {
       email,
       password,
     })
@@ -78,7 +78,7 @@ function Login() {
 
           <p> New User</p>
           <Link to="/forgotPassword">Forget Password</Link>
-          <Link to="/signup" className="btn btn-default border w-100 ">
+          <Link to="/" className="btn btn-default border w-100 ">
             Register
           </Link>
         </div>
