@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 function ForgetPassword() {
@@ -9,7 +9,7 @@ function ForgetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://server-login-and-signup-1.onrender.com/auth/forgot-password", {
+    Axios.post("https://server-login-and-signup-1.onrender.com/auth/forgot-password", {
       email,
     })
       .then((response) => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +11,12 @@ function Signup() {
   
   const [error,setError]=useState('')
   const navigate = useNavigate();
-
+  
+  Axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     if(username!=='' && email!=='' && password !==''){
-      axios.post("https://server-login-and-signup-1.onrender.com/auth/signup", {
+      Axios.post("https://server-login-and-signup-1.onrender.com/auth/signup", {
         username,
         email,
         password,
