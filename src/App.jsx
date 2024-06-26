@@ -6,7 +6,7 @@ import Home from "./Home";
 import ForgetPassword from "./ForgetPassword";
 import ResetPassword from "./ResetPassword";
 import Dashboard from "./Dashboard";
-import baseUrl from "./UrlFile";
+
 function App() {
   return (
     <div>
