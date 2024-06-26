@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import baseUrl from "./UrlFile";
 
 function ResetPassword() {
   const [password, setPassword] = useState();
@@ -10,7 +11,7 @@ function ResetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("https://server-login-and-signup-1.onrender.com/reset-password/" + token, {
+    Axios.post(`${baseUrl}/reset-password/`+ token, {
       password,
     })
       .then((response) => {

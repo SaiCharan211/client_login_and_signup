@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import baseUrl from "./UrlFile";
 
 function Home() {
   const navigate=useNavigate()
@@ -8,7 +9,7 @@ function Home() {
 
   const handleLogout=()=>{
     
-    axios.get('https://server-login-and-signup-1.onrender.com/logout')
+    axios.get(`${baseUrl}/logout`)
     .then(res=>{
       if(res.data.status){
         navigate('/login',{replace:true})

@@ -3,6 +3,7 @@ import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import baseUrl from "./UrlFile";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -16,11 +17,12 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username !== '' && email !== '' && password !== '') {
-      Axios.post("https://server-login-and-signup-1.onrender.com/signup", {
+      Axios.post(`${baseUrl}/signup`, {
         username,
         email,
         password,
-      })
+        
+      },{ withCredentials: true } )
         .then(response => {
           console.log(response);
           if (response.data.message) {
