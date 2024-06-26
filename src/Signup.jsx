@@ -12,17 +12,17 @@ function Signup() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  //Axios.defaults.withCredentials = true;
+  Axios.defaults.withCredentials = true;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username !== '' && email !== '' && password !== '') {
-      Axios.post(`${baseUrl}/signup`, {
+      Axios.post(`${baseUrl}/`, {
         username,
         email,
         password,
         
-      },{ withCredentials: true } )
+      } )
         .then(response => {
           console.log(response);
           if (response.data.message) {
@@ -31,7 +31,7 @@ function Signup() {
           }
         })
         .catch(err => {
-          console.log(err);
+          console.log("error:"+err);
         });
     } else {
       setError('Please enter all details');
