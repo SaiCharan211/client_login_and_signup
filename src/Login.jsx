@@ -17,9 +17,11 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${baseUrl}/login`, {
+    Axios.post(`${baseUrl}login`, {
       email,
       password,
+    },{
+      withCredentials: true 
     })
       .then((response) => {
         console.log(response)

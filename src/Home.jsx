@@ -9,7 +9,7 @@ function Home() {
 
   const handleLogout=()=>{
     
-    axios.get(`${baseUrl}/logout`)
+    axios.get(`${baseUrl}logout`)
     .then(res=>{
       if(res.data.status){
         navigate('/login',{replace:true})

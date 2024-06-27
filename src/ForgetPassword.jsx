@@ -9,9 +9,9 @@ function ForgetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${baseUrl}/forgot-password`, {
+    Axios.post(`${baseUrl}forgot-password`, {
       email,
-    })
+    },{ withCredentials: true})
       .then((response) => {
         console.log(response);
         if (response.data.status) {

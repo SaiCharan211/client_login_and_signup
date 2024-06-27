@@ -16,15 +16,18 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(username!=='' && email!=='' && password !==''){
-      Axios.post(`${baseUrl}/`, {
+      
+      Axios.post(`${baseUrl}`, {
         username,
         email,
         password,
-      })
+      },{ withCredentials: true}
+    )
         .then(response => {
           console.log(response)
           if (response) {
             console.log(response.data.message)
+            alert("Account Register")
             navigate("/login");
           }
         })

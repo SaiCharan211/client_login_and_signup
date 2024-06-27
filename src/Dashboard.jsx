@@ -7,12 +7,12 @@ function Dashboard() {
     axios.defaults.withCredentials=true;
     
     useEffect(()=>{
-        axios.get(`${baseUrl}/verify`)
+        axios.get(`${baseUrl}verify`)
         .then(res=>{
-            if(res.data.status){
-
+            if(res.data.status===true){
+              navigate('/home')
             }else{
-                navigate('/home')
+                
             }
         })
     },[])
