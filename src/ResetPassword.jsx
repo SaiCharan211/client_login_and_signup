@@ -11,7 +11,7 @@ function ResetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${baseUrl}/reset-password/`+ token, {
+    Axios.post(`${baseUrl}/reset-password/` + token, {
       password,
     })
       .then((response) => {

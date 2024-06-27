@@ -1,3 +1,3 @@
-const baseUrl =`https://server-login-and-signup.vercel.app`
+const baseUrl =`http://localhost:3210`
 export default baseUrl
 

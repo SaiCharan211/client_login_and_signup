@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React,{useEffect} from 'react'
 import { useNavigate,Link } from 'react-router-dom'
-import baseUrl from './UrlFile'
-
+import baseUrl from "./UrlFile";
 function Dashboard() {
     const navigate=useNavigate()
     axios.defaults.withCredentials=true;
@@ -11,9 +10,9 @@ function Dashboard() {
         axios.get(`${baseUrl}/verify`)
         .then(res=>{
             if(res.data.status){
-              navigate('/home')
+
             }else{
-                //navigate('/home')
+                navigate('/home')
             }
         })
     },[])
