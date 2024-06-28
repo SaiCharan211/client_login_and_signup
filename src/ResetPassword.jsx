@@ -9,23 +9,22 @@ function ResetPassword() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    Axios.post(`${baseUrl}reset-password/` + token, {
-      password,
-    },{ withCredentials: true})
-      .then((response) => {
-        if (response.data.status) {
-          navigate("/login");
-        }else{
-          alert(response.data.message);
-          console.log(response)
-        }
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // Send request to backend to reset password
+    const response = await fetch(`${baseUrl}reset-password/${token}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ password })
+    });
+    const data = await response.json();
+    if (data.status) {
+      alert('Password reset successful');
+    } else {
+      alert('Error resetting password');
+    }
   };
   return (
     <div>
