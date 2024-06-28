@@ -19,7 +19,7 @@ function ResetPassword() {
           navigate("/login");
         }else{
           alert(response.data.message);
-          console.log(response.data.message)
+          console.log(response)
         }
         console.log(response.data);
       })
