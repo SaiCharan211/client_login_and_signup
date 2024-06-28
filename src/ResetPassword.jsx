@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import baseUrl from "./UrlFile";
 
@@ -12,7 +12,7 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://your-backend-url/reset-password/${token}`, { password });
+      const response = await axios.post(`${baseUrl}reset-password/${token}`, { password });
       if (response.data.status) {
         setMessage('Password reset successful');
         navigate('/login')
