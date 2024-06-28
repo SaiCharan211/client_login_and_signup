@@ -2,28 +2,31 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import baseUrl from "./UrlFile";
-function ForgetPassword() {
-  const [email, setEmail] = useState();
 
+function ForgetPassword() {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     Axios.post(`${baseUrl}forgot-password`, {
       email,
-    },{ withCredentials: true})
-      .then((response) => {
+    }, { withCredentials: true })
+     .then((response) => {
         console.log(response);
         if (response.data.status) {
           alert("Check your email for reset password Link");
           navigate("/login");
+        } else {
+          setError(response.data.error);
         }
-        console.log(response.data);
       })
-      .catch((err) => {
-        console.log(err);
+     .catch((err) => {
+        setError(err.message);
       });
   };
+
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
@@ -37,14 +40,16 @@ function ForgetPassword() {
               <input
                 type="email"
                 autoComplete="off"
-                className="form-control  "
+                className="form-control"
                 name="email"
                 placeholder="Enter Email"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
-            <button type="submit" className="btn btn-success w-100 ">
+            {error && <div className="text-danger">{error}</div>}
+
+            <button type="submit" className="btn btn-success w-100">
               Reset Password
             </button>
             <p>Have an Account?</p> <Link to='/login'>Login</Link>
