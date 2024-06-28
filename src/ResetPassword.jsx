@@ -6,15 +6,16 @@ import baseUrl from "./UrlFile";
 function ResetPassword() {
   const [password, setPassword] = useState();
   const { token } = useParams();
+  const [message, setMessage] = useState('');
 
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post(`${baseUrl}reset-password/${token}`, { password });
+      const response = await axios.post(`https://your-backend-url/reset-password/${token}`, { password });
       if (response.data.status) {
         setMessage('Password reset successful');
+        navigate('/login')
       } else {
         setMessage('Error resetting password: ' + response.data.message);
       }
