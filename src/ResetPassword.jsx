@@ -17,6 +17,9 @@ function ResetPassword() {
       .then((response) => {
         if (response.data.status) {
           navigate("/login");
+        }else{
+          alert(response.data.message);
+          console.log(response.data.message)
         }
         console.log(response.data);
       })
