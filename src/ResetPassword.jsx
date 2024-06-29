@@ -11,7 +11,7 @@ function ResetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`https://client-login-and-signup.onrender.com/reset-password/${token}`, {
+    Axios.post(`https://server-login-and-signup.onrender.com/resetPassword`, {
       password,
     })
       .then((response) => {
