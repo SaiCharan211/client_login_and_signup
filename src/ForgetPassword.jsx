@@ -27,7 +27,7 @@ function ForgetPassword() {
 
   const handleVerifyOtp = async () => {
     try {
-      const response = await axios.post('http://localhost:3210/verify-otp', { email, otp });
+      const response = await axios.post('https://server-login-and-signup.onrender.com/verify-otp', { email, otp });
       setMessage(response.data.message);
       navigate('/resetPassword',{replace:true})
     } catch (error) {
