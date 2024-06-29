@@ -12,7 +12,7 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${baseUrl}resetPassword`, { token: token, newPassword: password });
+      const response = await axios.post(`${baseUrl}reset-password`, { token: token, newPassword: password });
       if (response.data.status) {
         setMessage('Password reset successful');
         // Redirect or show success message

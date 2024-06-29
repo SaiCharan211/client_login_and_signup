@@ -17,7 +17,7 @@ function ForgetPassword() {
   }
   const handleSendOtp = async (e) => {
     try {
-      const response = await axios.post('https://server-login-and-signup.onrender.com/forgot-password', { email });
+      const response = await axios.post(`${baseUrl}forgot-password`, { email });
       setMessage(response.data.message);
       setIsOtpSent(true);
     } catch (error) {
