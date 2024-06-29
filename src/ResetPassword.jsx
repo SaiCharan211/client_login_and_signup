@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 function ResetPassword() {
   const [password, setPassword] = useState('');
   const { token } = useParams();
   const [error, setError] = useState(null);
-
+  
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    Axios.post(`https://server-login-and-signup.onrender.com/reset-password`, {
-      password,
-    })
-      .then((response) => {
-        if (response.data.status) {
-          navigate("/login");
-        } else {
-          setError(response.data.message);
-        }
-        console.log(response.data);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
+    try {
+      const response = await axios.post(`${baseUrl}resetPassword`, { token: token, newPassword: password });
+      if (response.data.status) {
+        setMessage('Password reset successful');
+        // Redirect or show success message
+        navigate('/login')
+      } else {
+        setMessage('Error: ' + response.data.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Error resetting password: ' + error.message);
+    }
   };
 
   return (
