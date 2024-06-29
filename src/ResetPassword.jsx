@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import baseUrl from "./UrlFile";
 function ResetPassword() {
   const [password, setPassword] = useState('');
   const { token } = useParams();
